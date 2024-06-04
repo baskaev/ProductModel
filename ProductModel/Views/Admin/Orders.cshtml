@@ -1,0 +1,43 @@
+﻿<div class="row">
+    <div class="col-3">
+        <div class="row">
+            Заказы
+        </div>
+        <div class="row">
+            <a href="/admin/users">Пользователи</a>
+        </div>
+        <div class="row">
+            <a href="/admin/roles">Роли</a>
+        </div>
+        <div class="row">
+            <a href="/admin/products">Продукты</a>
+        </div>
+        <div class="row">
+            <a href="/admin/addproduct">Добавить продукт</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <h3>Список заказов</h3>
+        <input type="text" id="search-query" class="form-control w-50 d-inline-block" placeholder="введите айди пользователя">
+        <button class="btn btn-secondary" id="search-button">поиск</button>
+    </div>
+    @* начало *@
+    @* во вьюшке будет форма с выбором id пользователя, после выбора пользователя при нажатии на кнопку перейдем на 
+    нужный метод контроллера админки (ей передадим наш id), типо какой-нить show orders, в нем пройдемся по базе данных 
+    заказов сохраним и передадим во вьюшку show orders (она по сути будет аналогична обычной ордерс)
+    во вьюшке покажем все заказы с нужным CartDBId (id пользователя) *@
+
+    
+
+
+    <script>
+
+        document.getElementById('search-button').addEventListener('click', function () {
+            var query = document.getElementById('search-query').value;
+            var baseUrl = "/Admin/ShowOrders?userid=";
+            var url = baseUrl + encodeURIComponent(query);
+
+            window.location.href = url;
+        });
+    </script>
+</div>
